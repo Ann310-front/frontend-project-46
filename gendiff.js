@@ -13,5 +13,8 @@ program
   .action((filepath1, filepath2, options) => {
     const diff = genDiff(filepath1, filepath2, options.format);
     console.log(diff);
+    if (process.argv.includes('-h') || process.argv.includes('--help')) {
+      program.help();
+    }
   });
 program.parse();

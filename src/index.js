@@ -1,4 +1,11 @@
-export default (filepath1, filepath2, format = 'stylish') => {
+import { getData } from './parsers.js';
 
-return 'Comparing ${filepath1} and ${filepath2} with format: ${format}';
+const genDiff = (filepath1, filepath2, format = 'stylish') => {
+    const data1 = getData(filepath1);
+    const data2 = getData(filepath2);
+    return `File 1: ${JSON.stringify(data1)}\nFile 2: ${JSON.stringify(data2)}\nFormat: ${format}`;
+  
+
 };
+
+export default genDiff;
