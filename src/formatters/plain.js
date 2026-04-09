@@ -11,6 +11,7 @@ const plain = (ast, parentKey = '') => {
   const lines = ast.flatMap((node) => {
     const { key, type, value, oldValue, newValue, children } = node;
     const fullKey = parentKey ? `${parentKey}.${key}` : key;
+
     switch (type) {
       case 'nested':
         return plain(children, fullKey);
@@ -28,4 +29,5 @@ const plain = (ast, parentKey = '') => {
   });
   return lines.join('\n');
 };
+
 export default plain;
