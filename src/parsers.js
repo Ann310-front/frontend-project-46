@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { cwd } from 'process';
+import jsYaml from 'js-yaml';
 
 const getAbsolutePath = (filepath) => {
     return path.resolve(cwd(), filepath);
@@ -12,9 +13,12 @@ const readFile = (filepath) => {
 };
 
 const parseJson = (data) => JSON.parse(data);
+const parseYaml = (data) => jsYaml.load(data);
 
 const parsers = {
   json: parseJson,
+  yml: parseYaml,
+  yaml: parseYaml,
 };
 
 const getFormat = (filepath) => {
