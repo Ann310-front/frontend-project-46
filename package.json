@@ -22,6 +22,10 @@
   "homepage": "https://github.com/Ann310-front/frontend-project-46#readme",
   "dependencies": {
     "commander": "^11.1.0",
-    "js-yaml": "^4.1.1"
+    "js-yaml": "^4.1.1",
+    "lodash": "^4.18.1"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
   }
 }
