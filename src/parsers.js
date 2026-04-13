@@ -12,7 +12,6 @@ const parseJson = (data) => JSON.parse(data);
 const parseYaml = (data) => jsYaml.load(data);
 const parsers = {
   json: parseJson,
-  yml: parseYaml,
   yaml: parseYaml,
 };
 const getFormat = (filepath) => path.extname(filepath).toLowerCase().slice(1);
