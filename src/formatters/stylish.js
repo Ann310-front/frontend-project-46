@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const getIndent = (depth) => '  '.repeat(depth);  // ← 2 пробела вместо 4
+const getIndent = (depth) => '  '.repeat(depth); 
 
 const stringify = (value, depth) => {
   if (!_.isObject(value)) {
@@ -8,7 +8,7 @@ const stringify = (value, depth) => {
   }
   const indent = getIndent(depth + 1);
   const lines = Object.entries(value).map(
-    ([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`,  // ← убрал лишние пробелы
+    ([key, val]) => `${indent}${key}: ${stringify(val, depth + 1)}`,  
   );
   return `{\n${lines.join('\n')}\n${getIndent(depth)}}`;
 };
@@ -22,9 +22,9 @@ const stylish = (ast, depth = 0) => {
       case 'nested':
         return `${indent}${key}: {\n${stylish(children, depth + 1)}\n${indent}}`;
       case 'added':
-        return `${indent}+ ${key}: ${stringify(value, depth)}`;  // ← убрал лишний пробел
+        return `${indent}+ ${key}: ${stringify(value, depth)}`;
       case 'removed':
-        return `${indent}- ${key}: ${stringify(value, depth)}`;  // ← убрал лишний пробел
+        return `${indent}- ${key}: ${stringify(value, depth)}`; 
       case 'changed':
         return [
           `${indent}- ${key}: ${stringify(oldValue, depth)}`,
